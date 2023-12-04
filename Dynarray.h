@@ -16,7 +16,7 @@ private:
     size_t cap;      // Capacidad máxima del array
 
 public:
-    // Constructor por defecto
+
     Dynarray() : Array(nullptr), size(0), cap(0) {}
 
     // Destructor
@@ -130,6 +130,31 @@ public:
         return static_cast<double>(sum()) / size;
     }
 
+    // Moda de los elementos en el Dynarray
+
+    T mode() const{
+        if (size == 0) {
+            throw std::logic_error("Cannot calculate mode of an empty Dynarray");
+        }
+
+        std::unordered_map<T, size_t> countMap;
+        for (size_t i = 0; i < size; ++i) {
+            countMap[Array[i]]++;
+        }
+
+        T modeValue;
+        size_t maxCount = 0;
+
+        for (const auto& entry : countMap) {
+            if (entry.second > maxCount) {
+                modeValue = entry.first;
+                maxCount = entry.second;
+            }
+        }
+
+        return modeValue;
+
+    }
 
 };
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Dynarray.h"
+#include "personas.h"
 
 using namespace std;
 
@@ -9,6 +10,7 @@ void EjerVect();
 void Ejer1();
 void Ejer2();
 void Ejer3();
+void Ejer4();
 
 void menu();
 
@@ -36,6 +38,7 @@ void menu()
         case 2:
             
             break;
+
         
         default:
             break;
@@ -70,6 +73,8 @@ void EjerDyna()
         case 3:
             Ejer3();
             break;
+        case 4:
+            Ejer4();
         
         
         default:
@@ -146,5 +151,22 @@ void Ejer3()
     myDynarray.sum();
 
     cout <<  myDynarray.promedio() << endl;
+
+    cout << myDynarray.mode() << endl;
 }
 
+void Ejer4()
+{
+    Dynarray <personas> p;
+
+    p.insert(personas("Manolo", 12));
+    p.insert(personas("Juan", 13));
+    p.insert(personas("Jose", 14));
+
+    cout << "Personas en el array" << endl;
+
+    p.print();
+
+
+
+}
