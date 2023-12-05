@@ -5,6 +5,7 @@
 #include "Vector.h"
 #include "vectorinventario.h"
 #include "vectorestudiantes.h"
+#include "temperaturas.h"
 
 #include <vector>
 #include <string>
@@ -22,6 +23,7 @@ void Ejer5();
 void Ejer1v();
 void Ejer2v();
 void Ejer3v();
+void Ejer4v();
 
 void menu();
 
@@ -203,8 +205,8 @@ void EjerVect()
     do
     {
         cout << "[1] - Tienda "<< endl;
-        cout << "[2] - Ejercicio 2 "<< endl;
-        cout << "[3] - Ejercicio 3 "<< endl;
+        cout << "[2] - Productos "<< endl;
+        cout << "[3] -  Escuela "<< endl;
         cout << "[4] - Ejercicio 4 "<< endl;
         cout << "[5] - Ejercicio 5 "<< endl;
         cout << "[0] - Salir del Programa "<< endl;
@@ -223,7 +225,7 @@ void EjerVect()
             Ejer3v();
             break;
         case 4:
-
+            Ejer4v();
             break;
         case 5:
 
@@ -318,5 +320,24 @@ void Ejer3v()
     // Encontrar la asignatura con la mayor dispersión de calificaciones
     string asignaturaMayorDispersion = encontrarAsignaturaMayorDispersion(vectEstudiantes);
     cout << "Asignatura con Mayor Dispersión: " << asignaturaMayorDispersion << endl;
+
+}
+
+void Ejer4v()
+{
+    const int numero_dias = 10;
+    temperaturas temps(numero_dias);
+    
+
+    temps.implement(1, 25.0, 0);
+    temps.implement(2, 20.0, 1);
+    temps.implement(3, 28.0, 2);
+    temps.implement(4, 18.0, 3);
+    temps.implement(5, 22.0, 4);
+
+    cout << "Min Temperature: " << temps.tem_min() << endl;
+    cout << "Max Temperature: " << temps.tem_max() << endl;
+    cout << "Number of temperatures above 20: " << temps.sup(20.0) << endl;
+
 
 }
