@@ -2,6 +2,10 @@
 #include "Dynarray.h"
 #include "personas.h"
 #include "calendario.h"
+#include "Vector.h"
+
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -13,6 +17,7 @@ void Ejer2();
 void Ejer3();
 void Ejer4();
 void Ejer5();
+void Ejer1v();
 
 void menu();
 
@@ -38,7 +43,7 @@ void menu()
             EjerDyna();
             break;
         case 2:
-            
+            EjerVect();
             break;
 
         
@@ -184,5 +189,70 @@ void Ejer5()
 
     cout <<"Calendario"<< endl;
     c.print();
+
+}
+
+void EjerVect()
+{
+    int op = 1;
+    do
+    {
+        cout << "[1] - Ejercicio 1 "<< endl;
+        cout << "[2] - Ejercicio 2 "<< endl;
+        cout << "[3] - Ejercicio 3 "<< endl;
+        cout << "[4] - Ejercicio 4 "<< endl;
+        cout << "[5] - Ejercicio 5 "<< endl;
+        cout << "[0] - Salir del Programa "<< endl;
+
+        cin >> op;
+
+        switch (op)
+        {
+        case 1:
+            Ejer1v();
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        case 4:
+
+            break;
+        case 5:
+
+            break;
+        
+        
+        default:
+            break;
+        }
+    }while (op != 0);
+}
+
+void Ejer1v()
+{
+    const int daysInMonth = 30; // Cambia esto según la cantidad de días en el mes
+    Vector salesVector(daysInMonth);
+
+    // Simula la entrada de datos (nombre del producto y cantidad de ventas para cada día)
+    for (int i = 0; i < daysInMonth; ++i) {
+        string productName;
+        int sales;
+
+        cout << "Ingrese el nombre del producto para el día " << i + 1 << ": ";
+        cin >> productName;
+
+        cout << "Ingrese la cantidad de ventas para el día " << i + 1 << ": ";
+        cin >> sales;
+
+        salesVector.setElement(i, productName, sales);
+    }
+
+    // Calcula e imprime los resultados
+    cout << "Suma total de ventas: " << salesVector.calculateTotalSum() << endl;
+    cout << "Producto más vendido: " << salesVector.findMostSoldProduct() << endl;
+    cout << "Día con menos ventas: " << salesVector.findDayWithLeastSales() << endl;
 
 }
