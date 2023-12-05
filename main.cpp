@@ -3,6 +3,7 @@
 #include "personas.h"
 #include "calendario.h"
 #include "Vector.h"
+#include "vectorinventario.h"
 
 #include <vector>
 #include <string>
@@ -18,6 +19,7 @@ void Ejer3();
 void Ejer4();
 void Ejer5();
 void Ejer1v();
+void Ejer2v();
 
 void menu();
 
@@ -213,7 +215,7 @@ void EjerVect()
             Ejer1v();
             break;
         case 2:
-
+            Ejer2v();
             break;
         case 3:
 
@@ -255,5 +257,36 @@ void Ejer1v()
     cout << "Suma total de ventas: " << salesVector.calculateTotalSum() << endl;
     cout << "Producto más vendido: " << salesVector.findMostSoldProduct() << endl;
     cout << "Día con menos ventas: " << salesVector.findDayWithLeastSales() << endl;
+
+}
+
+void Ejer2v()
+{
+    const int numero_objetos = 10;
+    vectorinventario invetario(numero_objetos);
+
+    for(int i = 0; i < numero_objetos; i++)
+    {
+        string name;
+        double precio;
+        int numero;
+
+        cout << "Ingrese el nombre del producto "<< i + 1<< " : ";
+        cin >> name;
+        cout << "Ingrese el precio del " << name << " : ";
+        cin >> precio;
+        cout << "Ingrese la cantidad del "<< name << " : ";
+        cin >> numero;
+
+        invetario.setelement(i,name, numero, precio);
+
+    }
+
+    // Calcula e imprime los resultados
+    cout << "Valor total del inventario: "<< invetario.valor_inv() << endl;
+    cout << "Elemento con el precio mas alto: "<< invetario.mas_alto() << endl;
+    cout << "Promedio de unidades vendidas por producto: "<< invetario.valor_inv() / numero_objetos << endl;
+
+
 
 }
