@@ -179,6 +179,7 @@ void Ejer4()
     p.print();
 
 }
+
 void Ejer5()
 {
     Dynarray <calendario> c;
@@ -197,7 +198,7 @@ void EjerVect()
     int op = 1;
     do
     {
-        cout << "[1] - Ejercicio 1 "<< endl;
+        cout << "[1] - Tienda "<< endl;
         cout << "[2] - Ejercicio 2 "<< endl;
         cout << "[3] - Ejercicio 3 "<< endl;
         cout << "[4] - Ejercicio 4 "<< endl;
