@@ -4,6 +4,7 @@
 #include "calendario.h"
 #include "Vector.h"
 #include "vectorinventario.h"
+#include "vectorestudiantes.h"
 
 #include <vector>
 #include <string>
@@ -20,6 +21,7 @@ void Ejer4();
 void Ejer5();
 void Ejer1v();
 void Ejer2v();
+void Ejer3v();
 
 void menu();
 
@@ -218,7 +220,7 @@ void EjerVect()
             Ejer2v();
             break;
         case 3:
-
+            Ejer3v();
             break;
         case 4:
 
@@ -288,5 +290,33 @@ void Ejer2v()
     cout << "Promedio de unidades vendidas por producto: "<< invetario.valor_inv() / numero_objetos << endl;
 
 
+
+}
+
+void Ejer3v()
+{
+    // Ejemplo de uso
+    VectorEstudiantes<pair<string, pair<string, double>>> vectEstudiantes;
+
+    // Agregar estudiantes con sus calificaciones y asignaturas
+    vectEstudiantes.push_back({"Estudiante1", {"Asignatura1", 85.0}});
+    vectEstudiantes.push_back({"Estudiante2", {"Asignatura1", 90.0}});
+    vectEstudiantes.push_back({"Estudiante3", {"Asignatura2", 78.0}});
+    vectEstudiantes.push_back({"Estudiante4", {"Asignatura2", 92.0}});
+    vectEstudiantes.push_back({"Estudiante5", {"Asignatura3", 88.0}});
+    vectEstudiantes.push_back({"Estudiante6", {"Asignatura3", 95.0}});
+
+    // Calcular el promedio de calificaciones por asignatura
+    cout << "Promedio Asignatura1: " << calcularPromedioAsignatura(vectEstudiantes, "Asignatura1") << endl;
+    cout << "Promedio Asignatura2: " << calcularPromedioAsignatura(vectEstudiantes, "Asignatura2") << endl;
+    cout << "Promedio Asignatura3: " << calcularPromedioAsignatura(vectEstudiantes, "Asignatura3") << endl;
+
+    // Encontrar al estudiante con el mejor desempeño
+    auto mejorEstudiante = encontrarMejorEstudiante(vectEstudiantes);
+    cout << "Mejor Estudiante: " << mejorEstudiante.first << " - Calificación: " << mejorEstudiante.second << endl;
+
+    // Encontrar la asignatura con la mayor dispersión de calificaciones
+    string asignaturaMayorDispersion = encontrarAsignaturaMayorDispersion(vectEstudiantes);
+    cout << "Asignatura con Mayor Dispersión: " << asignaturaMayorDispersion << endl;
 
 }
