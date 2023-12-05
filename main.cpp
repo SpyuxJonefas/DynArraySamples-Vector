@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Dynarray.h"
 #include "personas.h"
+#include "calendario.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ void Ejer1();
 void Ejer2();
 void Ejer3();
 void Ejer4();
+void Ejer5();
 
 void menu();
 
@@ -75,6 +77,10 @@ void EjerDyna()
             break;
         case 4:
             Ejer4();
+            break;
+        case 5:
+            Ejer5();
+            break;
         
         
         default:
@@ -167,6 +173,16 @@ void Ejer4()
 
     p.print();
 
+}
+void Ejer5()
+{
+    Dynarray <calendario> c;
+    c.insert(calendario(1,2,1000));
+    c.insert(calendario(1,4,1000));
+    c.insert(calendario(12,2,1000));
+    c.insert(calendario(1,32,24));
 
+    cout <<"Calendario"<< endl;
+    c.print();
 
 }
